@@ -6,6 +6,9 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+    use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,11 +16,30 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $this->call([
+            // RolesTableSeeder::class,
+            UsersTableSeeder::class,
+            StatusTableSeeder::class,
+            ComplaintsTableSeeder::class,
+            WebsitesTableSeeder::class,
+        ]);    
+// Créer un rôle et une permission
+$admin = Role::create(['uuid' => Str::uuid()->toString(), 'name' => 'admin', 'guard_name' => 'web']);
+$agent = Role::create(['uuid' => Str::uuid()->toString(), 'name' => 'agent', 'guard_name' => 'web']);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+$manageUsers = Permission::create(['uuid' => Str::uuid()->toString(), 'name' => 'manage users', 'guard_name' => 'web']);
+$viewTasks = Permission::create(['uuid' => Str::uuid()->toString(), 'name' => 'view tasks', 'guard_name' => 'web']);
+
+// Associer les permissions aux rôles
+$admin->givePermissionTo($manageUsers);
+$agent->givePermissionTo($viewTasks);
+
+
+
     }
+
+
+
+
+
 }

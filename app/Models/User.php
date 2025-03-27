@@ -9,8 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use OwenIt\Auditing\Contracts\Auditable;
+use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Auditable
 {
     use HasApiTokens;
 
@@ -19,7 +21,9 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
-
+    use \OwenIt\Auditing\Auditable;
+    use HasRoles;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -28,6 +32,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'role_id',
         'password',
     ];
 
@@ -64,4 +69,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function role()
+{
+    return $this->belongsTo(Role::class);
+}
+
 }
