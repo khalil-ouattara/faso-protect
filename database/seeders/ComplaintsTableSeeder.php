@@ -16,7 +16,7 @@ class ComplaintsTableSeeder extends Seeder
     {
         DB::table('complaints')->insert([
             [
-                'id' => Str::uuid()->toString(),
+                
                 'user_id' => DB::table('users')->where('name', 'Agent')->first()->id,
                 'complainant' => 'John Doe',
                 'subject' => 'Delivery issue',
@@ -26,7 +26,7 @@ class ComplaintsTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'id' => Str::uuid()->toString(),
+                
                 'user_id' => DB::table('users')->where('name', 'Admin')->first()->id,
                 'complainant' => 'Jane Smith',
                 'subject' => 'Damaged item',

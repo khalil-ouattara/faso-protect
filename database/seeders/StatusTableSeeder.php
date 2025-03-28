@@ -15,10 +15,10 @@ class StatusTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('status')->insert([
-            ['id' => Str::uuid()->toString(), 'name' => 'En attente', 'created_at' => now(), 'updated_at' => now()],
-            ['id' => Str::uuid()->toString(), 'name' => 'En cours', 'created_at' => now(), 'updated_at' => now()],
-            ['id' => Str::uuid()->toString(), 'name' => 'Résolu', 'created_at' => now(), 'updated_at' => now()],
-            ['id' => Str::uuid()->toString(), 'name' => 'Bloqué', 'created_at' => now(), 'updated_at' => now()],
+            [ 'name' => 'En attente', 'created_at' => now(), 'updated_at' => now()],
+            [ 'name' => 'En cours', 'created_at' => now(), 'updated_at' => now()],
+            [ 'name' => 'Résolu', 'created_at' => now(), 'updated_at' => now()],
+            [ 'name' => 'Bloqué', 'created_at' => now(), 'updated_at' => now()],
         ]);
 
     }

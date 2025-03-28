@@ -16,7 +16,7 @@ class WebsitesTableSeeder extends Seeder
     {
         DB::table('websites')->insert([
             [
-                'id' => Str::uuid()->toString(),
+           
                 'user_id' => DB::table('users')->where('name', 'Agent')->first()->id,
                 'status_id' => DB::table('status')->where('name', 'En cours')->first()->id,
                 'company_name' => 'Example Company',

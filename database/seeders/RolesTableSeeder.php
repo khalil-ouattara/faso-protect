@@ -15,8 +15,8 @@ class RolesTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('roles')->insert([
-            ['id' => Str::uuid()->toString(), 'name' => 'Admin'],
-            ['id' => Str::uuid()->toString(), 'name' => 'Agent '],
+            [ 'name' => 'Admin'],
+            [ 'name' => 'Agent '],
         ]);
 
     }

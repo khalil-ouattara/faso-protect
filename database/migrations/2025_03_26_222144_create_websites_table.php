@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('websites', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
 
-            $table->uuid('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->uuid('status_id');
+            $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('status');
             
 
-            $table->string('company_name'); // Nom de l'entreprise
+            $table->string('company_name')->nullable(); // Nom de l'entreprise
             $table->string('domain_name'); // Nom du domaine
             $table->string('registrar')->nullable(); // Registrar (ex : GoDaddy, Namecheap)
             $table->string('whois_server')->nullable(); // Serveur WHOIS utilisé

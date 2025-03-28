@@ -17,21 +17,21 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'id' => Str::uuid()->toString(),
-                'name' => 'admin',
+              
+                'name' => 'Admin',
                 'email' => 'admin@mail.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('12345678'),
-                // 'role_id' => DB::table('roles')->where('name', 'Admin')->first()->id,
+                'role_id' => 1,
                 'remember_token' => Str::random(10),
             ],
             [
-                'id' => Str::uuid()->toString(),
+              
                 'name' => 'Agent',
                 'email' => 'agent@mail.com',
                 'email_verified_at' => now(),
                 'password' => Hash::make('12345678'),
-                // 'role_id' => DB::table('roles')->where('name', 'Agent')->first()->id,
+                'role_id' => 2,
                 'remember_token' => Str::random(10),
             ],
         ]);

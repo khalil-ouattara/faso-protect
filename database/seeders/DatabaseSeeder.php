@@ -23,16 +23,16 @@ class DatabaseSeeder extends Seeder
             ComplaintsTableSeeder::class,
             WebsitesTableSeeder::class,
         ]);    
-// Créer un rôle et une permission
-$admin = Role::create(['uuid' => Str::uuid()->toString(), 'name' => 'admin', 'guard_name' => 'web']);
-$agent = Role::create(['uuid' => Str::uuid()->toString(), 'name' => 'agent', 'guard_name' => 'web']);
+// //Créer un rôle et une permission
+// $admin = Role::create(['uuid' => Str::uuid()->toString(), 'name' => 'admin', 'guard_name' => 'web']);
+// $agent = Role::create(['uuid' => Str::uuid()->toString(), 'name' => 'agent', 'guard_name' => 'web']);
 
-$manageUsers = Permission::create(['uuid' => Str::uuid()->toString(), 'name' => 'manage users', 'guard_name' => 'web']);
-$viewTasks = Permission::create(['uuid' => Str::uuid()->toString(), 'name' => 'view tasks', 'guard_name' => 'web']);
+// $manageUsers = Permission::create(['uuid' => Str::uuid()->toString(), 'name' => 'manage users', 'guard_name' => 'web']);
+// $viewTasks = Permission::create(['uuid' => Str::uuid()->toString(), 'name' => 'view tasks', 'guard_name' => 'web']);
 
-// Associer les permissions aux rôles
-$admin->givePermissionTo($manageUsers);
-$agent->givePermissionTo($viewTasks);
+// // Associer les permissions aux rôles
+// $admin->givePermissionTo($manageUsers);
+// $agent->givePermissionTo($viewTasks);
 
 
 

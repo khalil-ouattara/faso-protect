@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string($morphPrefix . '_type')->nullable();
             $table->unsignedBigInteger($morphPrefix . '_id')->nullable();
             $table->string('event');
-            $table->uuid('auditable_id'); // Modifié pour accepter des UUID
+            $table->unsignedBigInteger('auditable_id'); // Modifié pour accepter des UUID
             $table->string('auditable_type'); // Pas besoin de changer
             $table->text('old_values')->nullable();
             $table->text('new_values')->nullable();

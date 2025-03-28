@@ -74,5 +74,13 @@ class User extends Authenticatable implements Auditable
 {
     return $this->belongsTo(Role::class);
 }
+    public function websites()
+{
+    return $this->hasMany(Website::class);
+}
+    public function complaints()
+{
+    return $this->hasMany(Complaint::class);
+}
 
 }

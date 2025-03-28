@@ -11,4 +11,6 @@ class Status extends Model
     use HasFactory;
     use HasUuids;
 
+     protected $table = 'status';
+
 }
